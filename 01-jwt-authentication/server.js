@@ -4,10 +4,23 @@ const express = require('express')
 const app = express()
 const PORT = 8383
 
+let data = {
+    username: "ShipItEarley"
+}
+
 app.get('/', (req, res) => {
     console.log('I hit an endpoint', req.method);
-    res.sendStatus(200)
+    res.send('<h1>Hello</h1>')
 })
+
+app.get('/dashboard', (req, res) => {
+    res.send('<h1>Dashboard</h1>')
+})
+
+app.get('/api/data', (req, res) => {
+    res.send(data)
+})
+
 app.listen(PORT, () => console.log(`Server has started on ${PORT}`));
 
 
