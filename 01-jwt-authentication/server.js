@@ -10,15 +10,21 @@ let data = {
 
 app.get('/', (req, res) => {
     console.log('I hit an endpoint', req.method);
-    res.send('<h1>Hello</h1>')
+    res.send('<h1>Homepage</h1>')
 })
 
 app.get('/dashboard', (req, res) => {
     res.send('<h1>Dashboard</h1>')
 })
 
+// CRUD = Create(POST), Read(GET), Update(PUT), Delete(DELETE)
+
 app.get('/api/data', (req, res) => {
     res.send(data)
+})
+
+app.post('/api/data', (req, res) => {
+    const newEntry = req.body
 })
 
 app.listen(PORT, () => console.log(`Server has started on ${PORT}`));
